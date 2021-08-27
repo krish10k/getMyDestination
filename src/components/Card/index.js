@@ -38,7 +38,7 @@ export const ConCard = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      {props.children}
+        {props.children}
       </CardActions>
     </Card>
   );

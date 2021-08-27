@@ -14,10 +14,10 @@ const useStyles = makeStyles({
         display: "flex-row",
         color: "red"
     },
-    likedLink:{
-        marginRight:"auto",
-        display:"flex",
-        justifyContent:"right"
+    likedLink: {
+        marginRight: "auto",
+        display: "flex",
+        justifyContent: "right"
     }
 });
 
@@ -37,7 +37,7 @@ export const Home = (props) => {
                     liked={like}
                     name="Afaganistan">
 
-                    <IconButton size="small" className={classes.optionBtn} >
+                    <IconButton size="small" className={classes.optionBtn} onClick={likePost}>
                         {like ? <AiFillHeart size={30} /> : <AiOutlineHeart size={30} />}
                     </IconButton>
                     {like ? <div className={classes.likedLink}>
@@ -47,7 +47,6 @@ export const Home = (props) => {
                     </div> : null}
                 </ConCard>
 
-                <h1>Home </h1>
 
             </Container>
         </div>
