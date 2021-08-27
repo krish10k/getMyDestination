@@ -1,6 +1,5 @@
 
 import React ,{useState} from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {Link} from 'react-router-dom';
@@ -13,10 +12,12 @@ import Earth from '../../assects/Earth.png';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
-        marginTop: theme.spacing(8),
+        marginTop: theme.spacing(2),
+        padding:"0.1rem",
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        backgroundColor:"white"
     },
     form: {
         width: '100%',
@@ -26,8 +27,11 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(3, 0, 2),
     },
     pic:{
-        height:'100%',
-        width:'100%'
+        height:'50%',
+        width:'50%',
+        display:"flex",
+        justifyContent:"center",
+     margin:"auto"
     }
 }));
 
@@ -51,13 +55,14 @@ export default function Login() {
         }
       
     return (
-        <Container component="main" maxWidth="md" style={{display:"flex"}}>
-            <Grid item sm={0} xl={6}>
+        <Container component="main" maxWidth="md" style={{display:"flex-row"}} >
+           <div className={classes.paper}>
+            <Grid item sm={0} xl={6}  >
                
                 <img className={classes.pic} src={Earth} />
             </Grid>
             <Grid item xs={12} xl={6}>               
-            <div className={classes.paper}>
+            
             
                 <Typography component="h1" variant="h3">
                    Welcome Back!
@@ -102,7 +107,7 @@ export default function Login() {
                         color="primary"
                         className={classes.submit}
                     >
-                       Login In
+                       Login
                     </Button>
                     <Grid container justifyContent="flex-end">
                         <Grid item>
@@ -112,11 +117,11 @@ export default function Login() {
                         </Grid>
                     </Grid>
                 </form>
-            </div>
+         
 
 
             </Grid>
-            
+            </div>
         </Container>
     );
 }
