@@ -1,13 +1,36 @@
 import './App.css';
-
+import { Home } from './pages/Home';
+import Login from './pages/Login';
+import SignUp from './pages/Signup';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-       
-      Get My Destination Place
-  
-      </header>
+    
+        {/* <Home /> */}
+        {/* <SignUp /> */}
+
+   
+
+      < Router>
+        <Switch>
+
+          <Route exact path="/" component={Home} />
+
+          <Route path="/signup">
+            <SignUp />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+
+        </Switch>
+      </Router>
+
     </div>
   );
 }
