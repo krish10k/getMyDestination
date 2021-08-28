@@ -8,6 +8,8 @@ import { AiOutlineHeart } from 'react-icons/ai'
 import { AiFillHeart } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
+import axios from 'axios';
+// import { GetData } from '../../Api';
 
 const useStyles = makeStyles({
     optionBtn: {
@@ -25,7 +27,12 @@ export const Home = (props) => {
     const classes = useStyles();
 
     const [like, setLike] = React.useState(true);
-    const likePost = () => { setLike(!like); }
+    const likePost = () => { setLike(!like);
+        const data =  fetch(`https://restcountries.eu/rest/v2/all`);
+        
+console.log(data)
+    }
+    
     return (
 
         <div>
@@ -41,7 +48,7 @@ export const Home = (props) => {
                         {like ? <AiFillHeart size={30} /> : <AiOutlineHeart size={30} />}
                     </IconButton>
                     {like ? <div className={classes.likedLink}>
-                        <Link to="/login"> <Typography variant="body" color="textPrimary" component="p">
+                        <Link to="/saved"> <Typography variant="body" color="textPrimary" component="p">
                             Go to saved
                         </Typography> </Link>
                     </div> : null}

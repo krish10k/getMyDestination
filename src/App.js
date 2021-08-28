@@ -2,19 +2,21 @@ import './App.css';
 import { Home } from './pages/Home';
 import Login from './pages/Login';
 import SignUp from './pages/Signup';
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
+import { Saved } from './pages/Saved';
 function App() {
   return (
     <div className="App">
-    
-        {/* <Home /> */}
-        {/* <SignUp /> */}
 
-   
+      {/* <Home /> */}
+      {/* <SignUp /> */}
+
+
 
       < Router>
         <Switch>
@@ -27,7 +29,9 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-
+          <Route path="/saved">
+            <Saved />
+          </Route>
         </Switch>
       </Router>
 
