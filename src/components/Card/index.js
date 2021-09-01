@@ -26,6 +26,7 @@ export const ConCard = (props) => {
           component="img"
           alt="{props.name}"
           height="140"
+          maxWidth="250 px"
           image={props.img}
           title=""
         />

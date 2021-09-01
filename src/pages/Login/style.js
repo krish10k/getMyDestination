@@ -2,7 +2,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 export const LoginStyle=()=> makeStyles((theme) => ({
     paper: {
-        marginTop: theme.spacing(2),
         padding:"0.1rem",
         display: 'flex',
         flexDirection: 'column',

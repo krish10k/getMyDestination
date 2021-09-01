@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import { GiPlanetConquest } from 'react-icons/gi';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { SignupStyle } from './style';
+
 const useStyles = SignupStyle()
 
 export default function SignUp() {
     const classes = useStyles();
+    const history = useHistory();
     const [user, setUser] = useState({
         name: "",
         lname: "",
@@ -31,7 +33,8 @@ export default function SignUp() {
         e.preventDefault()
         console.log(user)
         localStorage["users"] =JSON.stringify(user);
-        // localStorage.setItem("users" , [... user])
+        // localStorage.setItem("users" , [... user]) 
+        history.push("/login")
     }
     return (
         <Container component="main" maxWidth="xs" style={{ display: "flex" }}>

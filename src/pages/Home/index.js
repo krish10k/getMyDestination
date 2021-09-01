@@ -4,12 +4,13 @@ import { ConCard } from '../../components/Card'
 import Navbar from '../../components/Navbar'
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import Pagination from '@material-ui/lab/Pagination';
 import { AiOutlineHeart } from 'react-icons/ai'
 import { AiFillHeart } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
-//  import { getData } from '../../Api';
+//import { getData } from '../../Api';
 
 const useStyles = makeStyles({
     optionBtn: {
@@ -27,13 +28,27 @@ export const Home = (props) => {
     const classes = useStyles();
 
     const [data, setData] = useState(null);
+    const [page, setPage] = useState(1);
+    const [postPerPage, setPostPerPage] = useState(12);
+    //  const nextPage = () =>{
+    //      setPage(page+1)
+    //  }
+    //  const prevPage = () =>{
+    //     setPage(page-1)
+    // }
+    const handleChange = (event, value) => {
+        setPage(value);
+    };
 
     useEffect(() => {
-        // setData(getData())
-        axios.get(`https://restcountries.eu/rest/v2/all`).then((response) => {
-            setData(response.data);
-        });
-        if (!data) return null;
+
+        const getData = async () => {
+            await axios.get(`https://restcountries.eu/rest/v2/all`).then((response) => {
+                setData(response.data);
+            });
+            if (!data) return null;
+        }
+        getData()
     }, []
     )
     const [like, setLike] = React.useState(true);
@@ -48,6 +63,8 @@ export const Home = (props) => {
             <Navbar />
             <Container style={{ marginTop: "5rem", display: "flex", flexWrap: "wrap" }} >
 
+                {/*
+        add loader here!!!
                 <ConCard
                     img="https://restcountries.eu/data/afg.svg"
                     liked={like}
@@ -61,9 +78,9 @@ export const Home = (props) => {
                             Go to saved
                         </Typography> </Link>
                     </div> : null}
-                </ConCard>
+                </ConCard> */}
                 {
-                    data ? (data.slice(0, 11).map(place => {
+                    data ? (data.slice((page - 1) * postPerPage, page * 12).map(place => {
                         return (
                             <section key={place.name} >
                                 <ConCard
@@ -86,7 +103,11 @@ export const Home = (props) => {
                 }
 
 
-
+                {/* <button onClick={nextPage}>Next </button>  <button onClick={prevPage}>Prev </button> */}
+                <div className={classes.root}>
+                    {/* <Typography>Page: {page}</Typography> */}
+                    <Pagination count={21} page={page} onChange={handleChange} />
+                </div>
             </Container>
         </div>
     )

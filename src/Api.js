@@ -1,14 +1,14 @@
 
-// import axios from 'axios';
-// const API = "https://restcountries.eu/rest/v2/all";
-// export const  getData = () =>{
+import axios from 'axios';
+const API = "https://restcountries.eu/rest/v2/all";
+export const  getData = async () =>{
 
-//     axios.get(API)
-//     .then(res => {
-//       const data = res.data;
-//       if(data){
-//       return data
-//       }
-//      return null
-//     })
-// }
+  await  axios.get(API)
+    .then(res => {
+      const data = res.data;
+      if(data){
+      return data
+      }
+     return null
+    })
+}
