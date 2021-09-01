@@ -16,7 +16,7 @@ export default function Login() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
+const [auth ,setAuth] =useState(false)    // save in store and check for loggedout btn
     const userLogin = (e) => {
         e.preventDefault()
         const user = {
@@ -29,11 +29,14 @@ export default function Login() {
 
         if (user.email === users.email && user.password === users.password) {
             console.log("sucess-login")
+            setAuth(true)
             History.push("/")
         }
-        else (
+        else {
             console.log("error-login")
-        )
+            alert("no user found with this credentials... Please Sign Up!")
+            History.push("/signup")
+        }
 
     }
 

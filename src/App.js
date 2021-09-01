@@ -9,15 +9,11 @@ import {
   Route,
 } from "react-router-dom";
 import { Saved } from './pages/Saved';
+import { StoreProvider } from './Context';
 function App() {
   return (
     <div className="App">
-
-      {/* <Home /> */}
-      {/* <SignUp /> */}
-
-
-
+      <StoreProvider>
       < Router>
         <Switch>
 
@@ -34,7 +30,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-
+      </StoreProvider>
     </div>
   );
 }

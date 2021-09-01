@@ -1,8 +1,14 @@
-//const Api = "https://restcountries.eu/rest/v2/all";
-import axios from 'axios';
 
-export const GetData = ()=>{
+// import axios from 'axios';
+// const API = "https://restcountries.eu/rest/v2/all";
+// export const  getData = () =>{
 
-// axios.get(`https://restcountries.eu/rest/v2/all`)
-// .then( data => { res.data ; })
-}
+//     axios.get(API)
+//     .then(res => {
+//       const data = res.data;
+//       if(data){
+//       return data
+//       }
+//      return null
+//     })
+// }

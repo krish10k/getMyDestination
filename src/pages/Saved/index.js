@@ -1,4 +1,6 @@
 import React from 'react'
+import { ConCard } from '../../components/Card'
+import Navbar from '../../components/Navbar'
 
 /**
 * @author
@@ -7,7 +9,11 @@ import React from 'react'
 
 export const Saved = (props) => {
   return(
-    <div>Saved</div>
+    <div>
+      <Navbar />
+<ConCard />
+
+    </div>
    )
 
  }
